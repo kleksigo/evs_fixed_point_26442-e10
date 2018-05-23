@@ -8,8 +8,8 @@ BUILD     = build
 SRC_DIRS  = $(sort -u $(SRC_ENC) $(SRC_DEC)) 
 
 # Name of CLI binaries
-CLI_ENC   = EVS_cod
-CLI_DEC   = EVS_dec
+CLI_ENC   = EVS_cod.so
+CLI_DEC   = EVS_dec.so
 
 # Default tool settings
 CC        = gcc
@@ -33,8 +33,8 @@ OPTIM    ?= 2
 endif
 
 ifneq "$(DEBUG)" "0"
-CFLAGS   += -g3
-LDFLAGS  += -g3
+CFLAGS   += -g3 -fPIC
+LDFLAGS  += -g3 -shared
 endif
 
 ifeq "$(WMOPS)" "1"
